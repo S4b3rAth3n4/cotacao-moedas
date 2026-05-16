@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Baixar o código
+      - name: Baixar o código
         uses: actions/checkout@v4
 
-      - name: 🐍 Configurar Python 3.11
+      - name: Configurar Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: 📦 Instalar dependências
-        run: pip install -r requirements.txt
+      - name: Instalar dependências
+        run: pip install requests pytest pytest-cov
 
-      - name: ✅ Rodar testes
-        run: pytest test_integracao.py -v --tb=short
+      - name: Rodar testes
+        run: python -m pytest test_integracao.py -v --tb=short
